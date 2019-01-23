@@ -9,12 +9,15 @@
 !.config/openbox
 !.config/orage
 !.config/pavucontrol.ini
-!.config/Thunar
 /.config/tint2/tint2rc.backup*
 !.config/tint2
 !.config/ulauncher
 
-!.screenlayout
+/.screenlayout/*
+!.screenlayout/all_monitors.sh
+!.screenlayout/external_monitor.sh
+!.screenlayout/internal_monitor.sh
+!.screenlayout/toggle_monitors.sh
 !.my_alias
 !.my_functions
 !.zshrc

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+function run-docker-daemon() {
+    sudo systemctl status docker &> /dev/null;
+    if [ $? -ne 0 ]; then
+       echo "Starting docker daemon...";
+       sudo systemctl start docker &> /dev/null;
+       xhost local:root &> /dev/null
+       echo "Docker daemon started.";
+    fi
+}
+
+function shell_container() {
+	run-docker-daemon;
+	sudo docker-compose up -d;
+	sudo docker-compose exec $1 bash;
+}
+

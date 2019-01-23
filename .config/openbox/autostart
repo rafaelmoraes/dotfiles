@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Set desktop wallpaper:
+feh --bg-scale /home/rafael/Imagens/.wallpaper.jpg
+
+# Set system task bar
+tint2 &
+
+# Set network manager
+nm-applet &
+
+# Set volume control in system tray
+pasystray --volume-max=110 --volume-inc=1 &
+
+# Set keyboard layout
+setxkbmap -layout 'us_intl,br' -option 'grp:alt_shift_toggle' &
+
+# Start thunar as a daemon
+(sleep 1 && thunar --daemon) &
+
+# Start power manager
+(sleep 1 && xfce4-power-manager) &
+
+# Start clipboard manager
+(sleep 3 && clipit) &
+
+# Set compositor settings
+compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 &
+
+# Set tapping on touchpad on:
+#xinput set-prop 22 278 1 &
+xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1 &
+xinput set-prop 'ETPS/2 Elantech Touchpad'  'libinput Natural Scrolling Enabled' 1 &
+

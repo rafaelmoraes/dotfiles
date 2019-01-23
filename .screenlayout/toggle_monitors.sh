@@ -1,0 +1,1 @@
+/home/rafael/Desenvolvimento/shell_scripts/all/increments_and_runs.sh

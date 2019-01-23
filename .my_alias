@@ -1,0 +1,5 @@
+#!/bin/sh
+
+alias dkc='sudo docker-compose'
+alias dkcr='sudo docker-compose run --service-ports'
+alias dkce='sudo docker-compose exec '

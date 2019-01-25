@@ -13,6 +13,7 @@
 /.config/tint2/tint2rc.backup*
 !.config/tint2
 !.config/ulauncher
+!.config/dunst
 
 /.screenlayout/*
 !.screenlayout/all_monitors.sh

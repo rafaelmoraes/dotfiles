@@ -2,6 +2,7 @@
 /**/*BACKUP*
 
 !.gitignore
+!.gitconfig
 
 !.config
 /.config/*

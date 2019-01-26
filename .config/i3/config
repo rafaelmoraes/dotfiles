@@ -139,6 +139,7 @@ assign [class="Thunar"] $w3
 # Automatically open the calculator in floating mode, that is, not in fullscreen
 for_window [class="Galculator"] floating enable
 for_window [class="VirtualBox"] floating enable
+for_window [class="Transmission-gtk"] floating enable
 
 for_window [class="Firefox"] border none
 for_window [class="Google-chrome"] border none

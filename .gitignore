@@ -10,7 +10,6 @@
 !.config/i3
 !.config/openbox
 !.config/orage
-!.config/pavucontrol.ini
 /.config/tint2/tint2rc.backup*
 !.config/tint2
 !.config/ulauncher

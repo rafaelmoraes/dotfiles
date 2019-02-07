@@ -98,6 +98,3 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.my_alias
 source ~/.my_functions
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-eval "$(rbenv init -)"

@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-function run-docker-daemon() {
-    sudo systemctl status docker &> /dev/null;
+start_docker_daemon() {
+    systemctl status docker &> /dev/null;
     if [ $? -ne 0 ]; then
        echo "Starting docker daemon...";
        sudo systemctl start docker &> /dev/null;
@@ -10,9 +10,26 @@ function run-docker-daemon() {
     fi
 }
 
-function shell_container() {
-	run-docker-daemon;
+shell_container() {
+	start_docker_daemon;
 	sudo docker-compose up -d;
-	sudo docker-compose exec $1 bash;
+	sudo docker-compose exec "$1" bash;
 }
 
+vim() {
+    start_docker_daemon
+    shared_dir="$(pwd)"
+    if [[ $@ =~ "/" ]]; then
+    	file_name=${*##*/}
+	    shared_dir=${*%$file_name}
+    fi
+    docker run \
+        --rm \
+        -it \
+        -w "$shared_dir" \
+        -v "$shared_dir:$shared_dir":rw \
+        -v "$HOME/.vim-undo:$HOME/.vim-undo":rw \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e DISPLAY=unix"$DISPLAY" \
+        rmoraes/vim vim "$@"
+}

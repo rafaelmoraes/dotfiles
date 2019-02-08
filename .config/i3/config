@@ -141,6 +141,7 @@ for_window [class="Galculator"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="Audacious"] floating enable
+for_window [class="vlc"] floating enable
 
 for_window [class="Firefox"] border none
 for_window [class="Google-chrome"] border none

@@ -6,6 +6,7 @@ start_docker_daemon() {
        echo "Starting docker daemon...";
        sudo systemctl start docker &> /dev/null;
        xhost local:root &> /dev/null
+       xhost local:"$USER" &> /dev/null
        echo "Docker daemon started.";
     fi
 }

@@ -1,4 +1,13 @@
 #!/bin/bash
+__extract_file_path(){
+    if [[ $1 =~ "/" ]]; then
+    	file_name=${*##*/}
+        file_path=${*%$file_name}
+    else
+        file_path="$(pwd)"
+    fi
+    echo "$file_path"
+}
 
 start_docker_daemon() {
     systemctl status docker &> /dev/null;
@@ -13,24 +22,35 @@ start_docker_daemon() {
 
 shell_container() {
 	start_docker_daemon;
-	docker-compose up -d;
+	sudo docker-compose up -d;
 	docker-compose exec "$1" bash;
 }
 
 vim() {
     start_docker_daemon
-    shared_dir="$(pwd)"
-    if [[ $@ =~ "/" ]]; then
-    	file_name=${*##*/}
-	    shared_dir=${*%$file_name}
-    fi
+    shared_dir=$(__extract_file_path "$@")
+
     docker run \
         --rm \
         -it \
         -w "$shared_dir" \
-        -v "$shared_dir:$shared_dir":rw \
-        -v "$HOME/.vim-undo:$HOME/.vim-undo":rw \
+        -v "$shared_dir":"$shared_dir" \
+        -v "$HOME"/.vim-undo:/home/developer/.vim-undo \
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -e DISPLAY=unix"$DISPLAY" \
         rmoraes/vim vim "$@"
+}
+
+svim() {
+    start_docker_daemon
+    shared_dir=$(__extract_file_path "$@")
+
+    docker run \
+        --rm \
+        -it \
+        -w "/shared" \
+        -v "$shared_dir:/shared" \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e DISPLAY=unix"$DISPLAY" \
+        rmoraes/vim sudo vim "$@"
 }

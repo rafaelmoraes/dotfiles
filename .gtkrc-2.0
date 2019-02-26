@@ -2,8 +2,8 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/rafael/.gtkrc-2.0.mine"
-gtk-theme-name="Arc-Dark"
-gtk-icon-theme-name="Flat Remix Dark"
+gtk-theme-name="Arc"
+gtk-icon-theme-name="Flat Remix"
 gtk-font-name="RobotoRegular 11"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0

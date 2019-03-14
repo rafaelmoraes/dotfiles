@@ -140,6 +140,7 @@ assign [class="Thunar"] $w3
 for_window [class="Galculator"] floating enable
 for_window [class="VirtualBox"] floating enable
 for_window [class="Transmission-gtk"] floating enable
+for_window [class="Deluge"] floating enable
 for_window [class="Audacious"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -288,4 +289,3 @@ exec compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 ##xinput set-prop 22 278 1 &
 exec xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 exec xinput set-prop 'ETPS/2 Elantech Touchpad'  'libinput Natural Scrolling Enabled' 1
-

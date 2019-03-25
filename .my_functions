@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 __extract_file_path(){
     if [[ $1 =~ "^/" ]]; then
     	file_name=${*##*/}
@@ -67,7 +67,7 @@ __file_name() {
     esac
 }
 
-video_reencode() {
+video_reencode_x265() {
     video_in=$1
     if [[ -z "$2" || "$2" != "--low" ]]; then
         video_height=$(ffprobe \
@@ -87,8 +87,8 @@ video_reencode() {
     fi
     if [[ ! -z "$3" && "$3" == "--low" ]]; then
         echo '[USING LOW QUALITY MODE]'
-        optirun ffmpeg -i "$video_in" -c:a copy -c:v libx265 "$video_out"
+        ffmpeg -i "$video_in" -c:a copy -c:v libx265 "$video_out"
     else
-        optirun ffmpeg -i "$video_in" -c:a copy -c:v libx265 -x265-params crf=25 "$video_out"
+        ffmpeg -i "$video_in" -c:a copy -c:v libx265 -x265-params crf=25 "$video_out"
     fi
 }

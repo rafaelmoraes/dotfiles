@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 __extract_file_path(){
     if [[ $1 =~ "^/" ]]; then
     	file_name=${*##*/}
@@ -52,4 +52,43 @@ svim() {
         -v /tmp/.X11-unix:/tmp/.X11-unix \
         -e DISPLAY=unix"$DISPLAY" \
         rmoraes/vim sudo vim "$@"
+}
+
+__file_name() {
+    file=$1
+    case $2 in
+        --get-extension )
+            echo "$file" | awk -F '.' '{ print $NF }'
+            ;;
+        --remove-extension)
+            ext=$(__file_name "$file" --get-extension)
+            echo "${file%.$ext}"
+            ;;
+    esac
+}
+
+video_reencode() {
+    video_in=$1
+    if [[ -z "$2" || "$2" != "--low" ]]; then
+        video_height=$(ffprobe \
+                        -v quiet \
+                        -print_format json \
+                        -show_format \
+                        -show_streams \
+                        "$video_in" \
+                        | grep '"height"' \
+                        | awk -F ':' '{ print $2 }' \
+                        | sed 's/,/p/; s/ //g')
+        video_name=$(__file_name "$video_in" --remove-extension)
+        video_extension=$(__file_name "$video_in" --get-extension)
+        video_out="$video_name [x265 $video_height].$video_extension"
+    else
+        video_out=$2
+    fi
+    if [[ ! -z "$3" && "$3" == "--low" ]]; then
+        echo '[USING LOW QUALITY MODE]'
+        optirun ffmpeg -i "$video_in" -c:a copy -c:v libx265 "$video_out"
+    else
+        optirun ffmpeg -i "$video_in" -c:a copy -c:v libx265 -x265-params crf=25 "$video_out"
+    fi
 }

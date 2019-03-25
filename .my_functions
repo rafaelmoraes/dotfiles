@@ -81,7 +81,7 @@ video_reencode() {
                         | sed 's/,/p/; s/ //g')
         video_name=$(__file_name "$video_in" --remove-extension)
         video_extension=$(__file_name "$video_in" --get-extension)
-        video_out="$video_name [x265 $video_height].$video_extension"
+        video_out="$video_name [$video_height x265].$video_extension"
     else
         video_out=$2
     fi

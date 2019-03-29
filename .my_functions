@@ -69,7 +69,7 @@ __file_name() {
 
 video_reencode_x265() {
     video_in=$1
-    if [[ -z "$2" || "$2" != "--low" ]]; then
+    if [[ -z "$2" || "$2" == "--low" ]]; then
         video_height=$(ffprobe \
                         -v quiet \
                         -print_format json \
@@ -81,14 +81,19 @@ video_reencode_x265() {
                         | sed 's/,/p/; s/ //g')
         video_name=$(__file_name "$video_in" --remove-extension)
         video_extension=$(__file_name "$video_in" --get-extension)
+
+        if [[ ! "$video_extension" =~ 'mkv|mp4' ]]; then
+            video_extension='mp4'
+        fi
         video_out="$video_name [$video_height x265].$video_extension"
     else
         video_out=$2
     fi
-    if [[ ! -z "$3" && "$3" == "--low" ]]; then
+
+    if [[ -n "$3" && "$3" == "--low" ]]; then
         echo '[USING LOW QUALITY MODE]'
-        ffmpeg -i "$video_in" -c:a copy -c:v libx265 "$video_out"
+        ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 "$video_out"
     else
-        ffmpeg -i "$video_in" -c:a copy -c:v libx265 -x265-params crf=25 "$video_out"
+        ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 -x265-params crf=25 "$video_out"
     fi
 }

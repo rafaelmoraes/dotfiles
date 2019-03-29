@@ -91,4 +91,20 @@ video_reencode_x265() {
     fi
 
     ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 -x265-params crf=25 "$video_out"
+
+    if [[ "$2" == "--delete" || "$3" == "--delete" ]]; then
+        size_video_in=$(ffprobe "$video_in" 2>&1 \
+                        | grep Duration \
+                        | awk -F ',' '{print $1}' \
+                        | awk -F ': ' '{print $2}' \
+                        | awk -F '.' '{print $1}')
+        size_video_out=$(ffprobe "$video_out" 2>&1 \
+                        | grep Duration \
+                        | awk -F ',' '{print $1}' \
+                        | awk -F ': ' '{print $2}' \
+                        | awk -F '.' '{print $1}')
+        if [[ "$size_video_in" == "$size_video_out" ]]; then
+            rm "$video_in"
+        fi
+    fi
 }

@@ -69,7 +69,7 @@ __file_name() {
 
 video_reencode_x265() {
     video_in=$1
-    if [[ -z "$2" || "$2" == "--low" ]]; then
+    if [[ -z "$2" || "$2" == "--delete" ]]; then
         video_height=$(ffprobe \
                         -v quiet \
                         -print_format json \
@@ -90,10 +90,5 @@ video_reencode_x265() {
         video_out=$2
     fi
 
-    if [[ -n "$3" && "$3" == "--low" ]]; then
-        echo '[USING LOW QUALITY MODE]'
-        ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 "$video_out"
-    else
-        ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 -x265-params crf=25 "$video_out"
-    fi
+    ffmpeg -i "$video_in" -c:a aac -b:a 128k -c:v libx265 -x265-params crf=25 "$video_out"
 }

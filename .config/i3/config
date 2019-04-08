@@ -93,14 +93,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $w1 "1: Browsers"
+set $w1 "1: Firefox"
 set $w2 "2: Terminals"
 set $w3 "3: Files"
-set $w4 "4: Workspace"
+set $w4 "4: Mail"
 set $w5 "5: Workspace"
 set $w6 "6: Workspace"
 set $w7 "7: Workspace"
-set $w8 "8: Workspace"
+set $w8 "8: Chrome"
 set $w9 "9: Workspace"
 set $w10 "10: Workspace"
 
@@ -132,9 +132,10 @@ bindsym $mod+Shift+0 move container to workspace $w10
 #Open the programs on specific workspaces
 # Automatically open the Firefox on Workspace 1
 assign [class="Firefox"] $w1
-assign [class="Google-chrome"] $w1
+assign [class="Google-chrome"] $w8
 assign [class="terminal"] $w2
 assign [class="Thunar"] $w3
+assign [class="Thunderbird"] $w4
 
 # Automatically open the calculator in floating mode, that is, not in fullscreen
 for_window [class="Galculator"] floating enable
@@ -148,6 +149,8 @@ for_window [class="Blueman-manager"] floating enable
 
 for_window [class="Firefox"] border none
 for_window [class="Google-chrome"] border none
+for_window [class="Thunderbird"] border none
+for_window [class="terminal"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -227,6 +227,8 @@ bindsym $mod+Ctrl+1 exec ~/.screenlayout/internal_monitor.sh
 bindsym $mod+Ctrl+2 exec ~/.screenlayout/external_monitor.sh
 
 bindsym Print exec shutter -f
+bindsym Shift+Print exec shutter -s
+bindsym Ctrl+Print exec shutter -w
 
 bindsym $mod+Ctrl+d exec ulauncher
 bindsym $mod+Ctrl+f exec thunar

@@ -98,3 +98,7 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.my_alias
 source ~/.my_functions
+
+source ~/.asdf/asdf.sh
+
+source ~/.asdf/completions/asdf.bash

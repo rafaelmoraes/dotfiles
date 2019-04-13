@@ -26,19 +26,19 @@ shell_container() {
 	docker-compose exec "$1" bash;
 }
 
-vim() {
-    start_docker_daemon
-    shared_dir=$(__extract_file_path "$@")
-    docker run \
-        --rm \
-        -it \
-        -w "$shared_dir" \
-        -v "$shared_dir":"$shared_dir" \
-        -v "$HOME"/.vim-undo:/home/developer/.vim-undo \
-        -v /tmp/.X11-unix:/tmp/.X11-unix \
-        -e DISPLAY=unix"$DISPLAY" \
-        rmoraes/vim vim "$@"
-}
+# vim() {
+#     start_docker_daemon
+#     shared_dir=$(__extract_file_path "$@")
+#     docker run \
+#         --rm \
+#         -it \
+#         -w "$shared_dir" \
+#         -v "$shared_dir":"$shared_dir" \
+#         -v "$HOME"/.vim-undo:/home/developer/.vim-undo \
+#         -v /tmp/.X11-unix:/tmp/.X11-unix \
+#         -e DISPLAY=unix"$DISPLAY" \
+#         rmoraes/vim vim "$@"
+# }
 
 svim() {
     start_docker_daemon

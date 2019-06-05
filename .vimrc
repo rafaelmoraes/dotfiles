@@ -353,7 +353,10 @@ nnoremap <silent> <leader>e :FZF -m<CR>
 let g:ale_linter_aliases = { 'vue': ['vue', 'javascript'] }
 let g:ale_fixers = {
 \  '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'ruby': ['rubocop']
+\   'markdown': ['markdownlint', 'prettier'],
+\   'json': ['fixjson', 'prettier'],
+\   'yaml': ['prettier'],
+\   'ruby': ['rubocop']
 \}
 
 " let g:ale_fixers = {
@@ -520,7 +523,7 @@ set nobackup                                " Disable backup files
 set noswapfile                              " Disable swap files
 set nowritebackup                           " Disable backup files
 
-set colorcolumn=80                         " Set column rule
+set colorcolumn=80                        " Set column rule
 
 " Autocomplete
 set complete-=i                             " Limit the files searched for auto-completes

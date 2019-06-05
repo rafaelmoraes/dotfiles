@@ -1,5 +1,7 @@
 #!/bin/sh
 
+alias r=rails
+
 alias dkc='docker-compose'
 alias dkcr='docker-compose run --service-ports'
 alias dkce='docker-compose exec '

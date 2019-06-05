@@ -151,6 +151,7 @@ for_window [class="Firefox"] border none
 for_window [class="Google-chrome"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="terminal"] border none
+for_window [class="Code"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

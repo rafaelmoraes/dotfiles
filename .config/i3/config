@@ -31,7 +31,8 @@ font pango:System San Francisco Display 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -93,16 +94,16 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $w1 "1: Firefox"
-set $w2 "2: Terminals"
-set $w3 "3: Files"
-set $w4 "4: Mail"
-set $w5 "5: Workspace"
-set $w6 "6: Workspace"
-set $w7 "7: Workspace"
-set $w8 "8: Chrome"
-set $w9 "9: Workspace"
-set $w10 "10: Workspace"
+set $w1 "1:Firefox"
+set $w2 "2:Terminal"
+set $w3 "3:Code Editor"
+set $w4 "4:Files"
+set $w5 "5:Slack"
+set $w6 "6:Chrome"
+set $w7 "7:Workspace"
+set $w8 "8:Workspace"
+set $w9 "9:Workspace"
+set $w10 "10:Workspace"
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -132,10 +133,11 @@ bindsym $mod+Shift+0 move container to workspace $w10
 #Open the programs on specific workspaces
 # Automatically open the Firefox on Workspace 1
 assign [class="Firefox"] $w1
-assign [class="Google-chrome"] $w8
 assign [class="terminal"] $w2
-assign [class="Thunar"] $w3
-assign [class="Thunderbird"] $w4
+assign [class="Code"] $w3
+assign [class="Thunar"] $w4
+assign [class="Slack"] $w5
+assign [class="Google-chrome"] $w6
 
 # Automatically open the calculator in floating mode, that is, not in fullscreen
 for_window [class="Galculator"] floating enable
@@ -152,6 +154,7 @@ for_window [class="Google-chrome"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="terminal"] border none
 for_window [class="Code"] border none
+for_window [class="Slack"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -222,10 +225,10 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 # My keyboard shortcuts
 bindsym $mod+Ctrl+l exec i3lock --color 000000
 
-bindsym $mod+Ctrl+m exec cd ~/.screenlayout && ./toggle_monitors.sh
-bindsym $mod+Ctrl+0 exec ~/.screenlayout/all_monitors.sh
-bindsym $mod+Ctrl+1 exec ~/.screenlayout/internal_monitor.sh
-bindsym $mod+Ctrl+2 exec ~/.screenlayout/external_monitor.sh
+bindsym $mod+Ctrl+m exec cd ~/.screenlayout && ./toggle_monitors.sh && feh --bg-scale /home/rafael/.wallpaper.png
+bindsym $mod+Ctrl+0 exec ~/.screenlayout/all_monitors.sh && feh --bg-scale /home/rafael/.wallpaper.png
+bindsym $mod+Ctrl+1 exec ~/.screenlayout/internal_monitor.sh && feh --bg-scale /home/rafael/.wallpaper.png
+bindsym $mod+Ctrl+2 exec ~/.screenlayout/external_monitor.sh && feh --bg-scale /home/rafael/.wallpaper.png
 
 bindsym Print exec shutter -f
 bindsym Shift+Print exec shutter -s
@@ -259,13 +262,13 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 # XF86XK_Display
 # XF86TouchpadToggle
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 # XF86WLAN
 
 ### AUTOSTART
 # Set wallpapers
-exec_always --no-startup-id feh --bg-scale /home/rafael/Imagens/.wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/rafael/.wallpaper.png
 
 # Set network manager
 exec_always nm-applet
@@ -274,7 +277,7 @@ exec_always nm-applet
 exec pasystray --volume-max=110 --volume-inc=1
 
 # Set keyboard layout
-exec setxkbmap -layout 'us_intl,br' -option 'grp:alt_shift_toggle'
+exec setxkbmap -layout 'br,us_intl' -option 'grp:alt_shift_toggle'
 
 # Start thunar as a daemon
 exec sleep 1 && thunar --daemon
@@ -293,5 +296,5 @@ exec compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 
 ## Set tapping on touchpad on:
 ##xinput set-prop 22 278 1 &
-exec xinput set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
-exec xinput set-prop 'ETPS/2 Elantech Touchpad'  'libinput Natural Scrolling Enabled' 1
+exec xinput set-prop 11 'libinput Tapping Enabled' 1
+exec xinput set-prop 11  'libinput Natural Scrolling Enabled' 0

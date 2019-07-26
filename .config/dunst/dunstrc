@@ -1,5 +1,5 @@
 [global]
-font = Monospace 11
+font = Sans 13
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -70,16 +70,16 @@ hide_duplicates_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "300x50-15+49"
+geometry = "500x300+40+40"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
-shrink = no
+shrink = yes
 
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 5
+transparency = 7
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -100,7 +100,7 @@ monitor = 0
 #
 # If this option is set to mouse or keyboard, the monitor option
 # will be ignored.
-follow = none
+follow = mouse
 
 # Should a notification popped up from history be sticky or timeout
 # as if it would normally do.
@@ -123,10 +123,10 @@ line_height = 3
 separator_height = 2
 
 # Padding between text and separator.
-padding = 6
+padding = 5
 
 # Horizontal padding.
-horizontal_padding = 6
+horizontal_padding = 5
 
 # Define a color for the separator.
 # possible values are:
@@ -139,7 +139,7 @@ separator_color = frame
 # Print a notification on startup.
 # This is mainly for error detection, since dbus (re-)starts dunst
 # automatically after a crash.
-startup_notification = false
+startup_notification = true
 
 # dmenu path.
 dmenu = /usr/bin/dmenu -p dunst:
@@ -149,13 +149,13 @@ browser = /usr/bin/firefox -new-tab
 
 # Align icons left/right/off
 icon_position = off
-max_icon_size = 80
+max_icon_size = 96
 
 # Paths to default icons.
 icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
 
-frame_width = 3
-frame_color = "#8EC07C"
+frame_width = 1
+frame_color = "#fffff"
 
 [shortcuts]
 
@@ -183,24 +183,25 @@ context = ctrl+shift+period
 # Otherwise the "#" and following would be interpreted as a comment.
 frame_color = "#3B7C87"
 foreground = "#3B7C87"
-background = "#191311"
+background = "#232323"
 #background = "#2B313C"
-timeout = 4
+timeout = 3
 
 [urgency_normal]
-frame_color = "#5B8234"
-foreground = "#5B8234"
-background = "#191311"
+#frame_color = "#5B8234"
+#foreground = "#5B8234"
+frame_color = "#ffffff"
+foreground = "#ffffff"
+background = "#232323"
 #background = "#2B313C"
 timeout = 6
 
 [urgency_critical]
 frame_color = "#B7472A"
 foreground = "#B7472A"
-background = "#191311"
+background = "#232323"
 #background = "#2B313C"
-timeout = 8
-
+timeout = 12
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-alias r=rails
+alias r='bundle exec rails'
+alias rk='bundle exec rake'
 
 alias dkc='docker-compose'
 alias dkcr='docker-compose run --service-ports'

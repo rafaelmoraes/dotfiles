@@ -102,3 +102,5 @@ source ~/.my_functions
 source ~/.asdf/asdf.sh
 
 source ~/.asdf/completions/asdf.bash
+
+source ~/.pitzi_profile

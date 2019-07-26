@@ -3,9 +3,9 @@
 
 include "/home/rafael/.gtkrc-2.0.mine"
 gtk-theme-name="Arc"
-gtk-icon-theme-name="Flat Remix"
-gtk-font-name="RobotoRegular 11"
-gtk-cursor-theme-name="Adwaita"
+gtk-icon-theme-name="Flat-Remix-Blue"
+gtk-font-name="Droid Sans Fallback 12"
+gtk-cursor-theme-name="DMZ-Black"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

@@ -32,6 +32,7 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'vim-scripts/CSApprox' "Makes GUI colorschemes works in terminal
 Plug 'hzchirs/vim-material' "material
 Plug 'reedes/vim-colors-pencil'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'ryanoasis/vim-devicons', {'do': 'mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts && curl -fLo \"Roboto Mono Nerd Font Complete Mono.ttf\" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/RobotoMono/Regular/complete/Roboto%20Mono%20Nerd%20Font%20Complete%20Mono.ttf'} "shows icons like fonts
 
@@ -164,18 +165,18 @@ set mousemodel=popup
 set t_Co=256
 set termguicolors " *** force vim colorscheme over terminal colorscheme
 set guioptions=egmrti
-set gfn=RobotoMono_Nerd_Font_Regular:h11
+set gfn=RobotoMono_Nerd_Font_Regular:h10
 let no_buffers_menu=1
 
 if !exists('g:not_finish_vimplug')
   set background=light
-  colorscheme pencil "vim-material
+  colorscheme nord "pencil vim-material
   let g:pencil_terminal_italics = 1 "Only works with pencil theme
 endif
 
 if has("gui_running")
   if has("gui_mac") || has("gui_macvim")
-    set guifont=RobotoMono_Nerd_Font_Regular:h11
+    set guifont=RobotoMono_Nerd_Font_Regular:h10
     set transparency=7
   endif
 else
@@ -215,7 +216,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme='pencil' "material
+let g:airline_theme='nord' "pencil material
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1

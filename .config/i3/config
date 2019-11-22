@@ -135,8 +135,8 @@ bindsym $mod+Shift+0 move container to workspace $w10
 assign [class="Firefox"] $w1
 assign [class="terminal"] $w2
 assign [class="Code"] $w3
+assign [class="Sublime_text"] $w3
 assign [class="Thunar"] $w4
-assign [class="Slack"] $w5
 assign [class="Google-chrome"] $w6
 
 # Automatically open the calculator in floating mode, that is, not in fullscreen
@@ -154,7 +154,7 @@ for_window [class="Google-chrome"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="terminal"] border none
 for_window [class="Code"] border none
-for_window [class="Slack"] border none
+for_window [class="Sublime_text"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

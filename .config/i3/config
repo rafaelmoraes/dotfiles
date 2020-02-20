@@ -98,7 +98,7 @@ set $w1 "1:Firefox"
 set $w2 "2:Terminal"
 set $w3 "3:Code Editor"
 set $w4 "4:Files"
-set $w5 "5:Slack"
+set $w5 "5:GitKraken"
 set $w6 "6:Chrome"
 set $w7 "7:Workspace"
 set $w8 "8:Workspace"
@@ -137,6 +137,7 @@ assign [class="terminal"] $w2
 assign [class="Code"] $w3
 assign [class="Sublime_text"] $w3
 assign [class="Thunar"] $w4
+assign [class="GitKraken"] $w5
 assign [class="Google-chrome"] $w6
 
 # Automatically open the calculator in floating mode, that is, not in fullscreen
@@ -296,5 +297,5 @@ exec compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 
 ## Set tapping on touchpad on:
 ##xinput set-prop 22 278 1 &
-exec xinput set-prop 11 'libinput Tapping Enabled' 1
-exec xinput set-prop 11  'libinput Natural Scrolling Enabled' 0
+exec xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1
+exec xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Natural Scrolling Enabled' 0

@@ -66,3 +66,7 @@ __file_name() {
             ;;
     esac
 }
+
+mount_google_drive() {
+    rclone mount GoogleDrive:Synced ~/google-drive &
+}

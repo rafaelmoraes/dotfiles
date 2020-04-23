@@ -7,3 +7,5 @@ alias rspec='bundle exec rspec'
 alias dkc='docker-compose'
 alias dkcr='docker-compose run --service-ports'
 alias dkce='docker-compose exec '
+
+alias xopen='xdg-open'

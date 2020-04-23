@@ -287,7 +287,8 @@ exec sleep 1 && thunar --daemon
 exec sleep 1 && xfce4-power-manager
 
 # Start clipboard manager
-exec sleep 3 && clipit
+# exec sleep 3 && clipit
+exec sleep 3 && parcellite
 
 # Blueman applet bluetooth
 exec_always sleep 3 && blueman-applet

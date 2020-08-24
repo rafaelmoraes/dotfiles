@@ -1,7 +1,7 @@
 #!/bin/sh
 
 alias r='bundle exec rails'
-alias rk='bundle exec rake'
+alias rake='bundle exec rake'
 alias rspec='bundle exec rspec'
 
 alias dkc='docker-compose'
